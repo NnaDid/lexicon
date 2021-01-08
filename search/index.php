@@ -77,9 +77,12 @@ Find the meaning of your name and your personality. Before you give your child a
 												<i class="fa fa-microphone" style="color:red"></i>
 											</div> -->
 											<button type="submit" class="btn btn-primary input-group-text border-0 w-40" style="color:#fff;font-weight:600;"> Lexi Search </button>
+										  <?php if(!isset($_SESSION["NL_USER_LIVE"])){ ?> 	
+											<a href ="../login.html" class="btn btn-success input-group-text border-0 w-40" style="color:#fff;font-weight:600;background-color:#003 !important;"> Login </a>
+										   <?php  } ?>
 										</span>
 									</div> 								
-							</form>
+							</form> 
 				    </div>
 				
         <!--  Display search results  -->
@@ -112,8 +115,10 @@ Find the meaning of your name and your personality. Before you give your child a
 	       
 		</div> <!-- End of Row user/?search=tobi&pg=addName -->
     </div>    <!-- End of Conatiner  -->
+	<p> <?php echo $protocol = apache_getenv('HTTPS') ? 'https:' : 'http:'; ?></p>
  <script>
-  let str = "<?php  echo $searStr ?? ''; ?>";
+  let str       = "<?php  echo $searStr ?? ''; ?>";
+//   let $protocol = apache_getenv('HTTPS') ? 'https:' : 'http:';
   function addSearchedName(){
 	  let urlRedirect = 'http://localhost/lexicon/user/?search='+str+'&pg=addName';
       location.assign(urlRedirect);
